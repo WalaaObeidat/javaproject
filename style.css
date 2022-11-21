@@ -32,7 +32,9 @@ body{
     display: block;
     width: 90%;
 }
-
+.text{
+    /* background-color: #5c1444; */
+}
 .flex div h1{
     color: var(--secondaryColor);
     font-weight: 700;
