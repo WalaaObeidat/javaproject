@@ -1,4 +1,3 @@
-
 let formLogInEvent = document.getElementById("sub")
 let users = JSON.parse(localStorage.getItem("users")) || [];
 console.log(users)
@@ -13,11 +12,17 @@ logform.addEventListener('submit', (e)=>{
         if(e.email == emailValue && e.password == passValue){
             localStorage.setItem('current', JSON.stringify(e.email))
             console.log('welcome')
-            // location.href = "http://127.0.0.1:5500/main/mainhome.html";
-            location.href = "https://zohdewtamimi.github.io/javascriptpro/main/mainhome.html";
+
+            const url = getCurrentURL()
+            loc = url.match(/.*?(?=\/login\/login\.html|$)/i)[0]
+            location.href = `${loc}/main/mainhome.html`
         }else{
             console.log('check your password')
         }
     })
     e.preventDefault()
 })
+
+function getCurrentURL () {
+    return window.location.href
+}
